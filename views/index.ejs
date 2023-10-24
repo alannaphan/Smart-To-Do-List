@@ -2,20 +2,22 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
+  <title>SMART TODOs - Home Page</title>
 
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
-  <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
   <link rel="stylesheet" href="/styles/button.css" />
   <link rel="stylesheet" href="/styles/all-lists.css" />
 
-  <!-- External JS -->
+  <!-- JS -->
   <script src="/vendor/jquery-3.0.0.js"></script>
   <script defer src="/scripts/app.js"></script>
 
@@ -34,19 +36,8 @@
 </head>
 
 <body>
-  <header id="top-banner">
-    <nav>
-      <div class="left">
-        <img id='logo' src="/images/logo.png ">
-        SMART TODOs
-      </div>
-      <h3>Setting</h3>
-    </nav>
-
-    <div>
-      <img id="profile" src="/images/profile-pic.webp">
-      <h3>Username</h3>
-    </div>
+  <header class="top-banner">
+    <%- include('partials/_header')%>
   </header>
 
   <main>
@@ -61,7 +52,24 @@
         <div class="user-input-left">
           <input type="text" placeholder="Add a task!" />
           <input type="date" />
-          <input type="text" placeholder="Your recommend list wil be..." />
+          <select name="list-category" id="list-category">
+            <option value="default" selected>Your recommended list wil be:</option>
+            <option value="watch">👀 to watch</option>
+            <option value="eat">😋 to eat</option>
+            <option value="read" >📖 to read</option>
+            <option value="buy" >🛍 to buy</option>
+            <option value="other">❓ Other</option>
+          </select>
+          <!-- <div class="dropdown">
+            <button class="dropbtn">Your recommended list wil be...</button>
+            <div class="dropdown-content">
+              <a href="#">👀 to watch</a>
+              <a href="#">😋 to eat</a>
+              <a href="#">📖 to read</a>
+              <a href="#">🛍 to buy</a>
+              <a href="#">❓ Other</a>
+            </div>
+          </div> -->
         </div>
       </div>
       <button type="submit" class="button-56">Submit</button>
@@ -83,6 +91,16 @@
               <i class="fa-regular fa-clock" style="color: #a52a2a;"></i>
               deadline: new Wed
             </footer>
+
+            <div class="modify-item">
+              <form method="POST" action="/items">
+                <button class="button-4" role="button">edit</button>
+              </form>
+              <form method="POST" action="/items/delete">
+                <button class="button-4" role="button">delete</button>
+              </form>
+            </div>
+
           </article>
         </div>
 

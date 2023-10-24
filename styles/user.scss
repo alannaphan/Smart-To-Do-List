@@ -1,0 +1,62 @@
+.user-pic-name {
+  img {
+    width: 13vw;
+    min-width: 200px;
+    border-radius: 60%;
+    background-color: beige;
+    background-image: url("https://www.transparenttextures.com/patterns/asfalt-dark.png");
+    padding: 4vh;
+    padding-top: 5vh;
+    padding-bottom: 5vh;
+  }
+
+  h2 {
+    margin-top: 4px;
+    font-size: min(2.5vw, 1 rem);
+  }
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2vh;
+}
+
+
+.new-profile-input {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  .left {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    font-weight: bold;
+    min-width: 100px;
+  }
+
+  .right {
+    display: flex;
+    flex-direction: column;
+    padding-right: 1rem;
+  }
+
+  label{
+    font-size: 91%;
+    height: min(8vh, 48px);
+    margin-bottom: 2vh;
+    width: 100%;
+  }
+
+  input {
+    width: min(15vw, 300px);
+    height: min(8vh, 48px);
+    margin-bottom: 2vh;
+  }
+}
+
+.new-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

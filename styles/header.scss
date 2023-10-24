@@ -1,0 +1,50 @@
+.top-banner {
+  nav {
+    .left {
+      display: flex;
+      flex-direction: column;
+      font-size: 1rem;
+      font-family: 'VT323', monospace;
+
+      #logo {
+        height: 60px;
+      }
+    }
+
+    .right {
+      display: flex;
+      flex-direction: row;
+      font-size: 18px;
+
+      .nav-link {
+        color: #030302;
+        padding: 3px;
+        font-weight: bold;
+      }
+    }
+
+    font-size: 18px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 30px;
+  }
+
+  div {
+    #profile {
+      height: 4rem;
+    }
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: smaller;
+  }
+
+  height: 169px;
+  background-color: #F4F4F0;
+  border-bottom: dashed 0.5rem;
+  border-color: #E1E3EA;
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
