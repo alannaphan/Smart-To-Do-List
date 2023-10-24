@@ -1,6 +1,22 @@
 // See: https://sass-lang.com/
 
+* {
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
 body,
 html {
   margin: 0;
+}
+
+body {
+  color: #030302;
+  font-size: 22px;
+  font-family: 'Source Sans 3', sans-serif;
 }

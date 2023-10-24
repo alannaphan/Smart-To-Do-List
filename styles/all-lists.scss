@@ -1,0 +1,52 @@
+.each-row {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+
+.per-list {
+  margin-left: 12px;
+  width: 37vw;
+  height: 30rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+  border: dashed 4px #776a95;
+  display: flex;
+  flex-direction: column;
+  margin-top: 1rem;
+  // align-items: center;
+
+  h3 {
+    margin-bottom: -8px;
+    margin-top: 11px;
+  }
+
+  article {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    .check-item {
+      display: flex;
+      margin-bottom: -14px;
+    }
+
+    footer {
+      font-style: italic;
+      font-size: 1rem;
+      display: row;
+      color: #a52a2a;
+      img {
+        height: 1rem;
+      }
+    }
+
+    #checkbox {
+      width: 1.5rem;
+    }
+
+  }
+
+
+}
