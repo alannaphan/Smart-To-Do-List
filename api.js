@@ -67,4 +67,23 @@ import axios from 'axios';
 // 	console.error(error);
 // }
 
+// ---- retrieve product API ------ please use this one sparingly because I do not have many uses for it
+// const options = {
+//   method: 'GET',
+//   url: 'https://amazon-price1.p.rapidapi.com/search',
+//   params: {
+//     keywords: 'korean fried chicken',
+//     marketplace: 'ES'
+//   },
+//   headers: {
+//     'X-RapidAPI-Key': '6a2f06b1e5msha387154f97797fbp15121ejsn69559ed70522',
+//     'X-RapidAPI-Host': 'amazon-price1.p.rapidapi.com'
+//   }
+// };
 
+// try {
+// 	const response = await axios.request(options);
+// 	console.log(Object.keys(response.data).length); // returns 0 for length if no match
+// } catch (error) {
+// 	console.error(error);
+// }
