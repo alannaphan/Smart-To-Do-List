@@ -60,16 +60,6 @@
             <option value="buy" >🛍 to buy</option>
             <option value="other">❓ Other</option>
           </select>
-          <!-- <div class="dropdown">
-            <button class="dropbtn">Your recommended list wil be...</button>
-            <div class="dropdown-content">
-              <a href="#">👀 to watch</a>
-              <a href="#">😋 to eat</a>
-              <a href="#">📖 to read</a>
-              <a href="#">🛍 to buy</a>
-              <a href="#">❓ Other</a>
-            </div>
-          </div> -->
         </div>
       </div>
       <button type="submit" class="button-56">Submit</button>
@@ -92,15 +82,14 @@
               deadline: new Wed
             </footer>
 
-            <div class="modify-item">
-              <form method="POST" action="/items">
+            <div class="modify-buttons">
+              <a href="/items">
                 <button class="button-4" role="button">edit</button>
-              </form>
+              </a>
               <form method="POST" action="/items/delete">
                 <button class="button-4" role="button">delete</button>
               </form>
             </div>
-
           </article>
         </div>
 

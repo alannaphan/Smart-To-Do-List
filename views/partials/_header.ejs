@@ -5,8 +5,10 @@
       SMART TODOs
     </div>
     <div class="right">
-      <input type="email" placeholder="your email address">
-      <a class="nav-link" href="/login">Login</a>
+      <form method="POST" action="/users/login">
+        <input type="name" name="username" placeholder="your username">
+        <button class="button-4" role="button">Login</button>
+      </form>
       <a class="nav-link" href="/users">Setting</a>
     </div>
   </nav>

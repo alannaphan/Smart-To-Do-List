@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SMART TODOs - Edit Item</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" />
+  <link rel="stylesheet" href="/styles/layout.css" />
+  <link rel="stylesheet" href="/styles/header.css" />
+  <link rel="stylesheet" href="/styles/main.css" />
+  <link rel="stylesheet" href="/styles/button.css" />
+  <link rel="stylesheet" href="/styles/items.css" />
+  <link rel="stylesheet" href="/styles/all-lists.css" />
+
+  <!-- JS -->
+  <script src="/vendor/jquery-3.0.0.js"></script>
+  <script defer src="/scripts/app.js"></script>
+
+  <!--External Fonts-->
+  <script src="https://kit.fontawesome.com/64bce3f621.js" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:ital,wght@0,300;0,600;1,300;1,600&family=VT323&display=swap"
+    rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Bungee&family=Source+Sans+3:ital,wght@0,300;0,600;1,300;1,600&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+  <header class="top-banner">
+    <%- include('partials/_header')%>
+  </header>
+
+  <main>
+    <div class="item-details">
+      <header>
+        <h1>List Name:</h1>
+      </header>
+
+      <form action="/items" method="POST">
+        <div id="user-inputs">
+          <div class="left">
+            <div>EDIT YOUR CURRENT ITEM:</div>
+            <div>DEADLINE:</div>
+            <div>LIST:</div>
+          </div>
+
+          <div class="right">
+            <input type="text" placeholder="Edit here!" />
+            <input type="date" />
+            <select name="list-category" id="list-category">
+              <option value="default" selected>Your new recommended list wil be:</option>
+              <option value="watch">👀 to watch</option>
+              <option value="eat">😋 to eat</option>
+              <option value="read">📖 to read</option>
+              <option value="buy">🛍 to buy</option>
+              <option value="other">❓ Other</option>
+            </select>
+          </div>
+        </div>
+        <button type="submit" class="button-56">Submit</button>
+      </form>
+    </div>
+
+  </main>
+
+</body>
+</html>
