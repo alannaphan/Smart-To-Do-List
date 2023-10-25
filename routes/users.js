@@ -7,34 +7,39 @@
 
 const express = require('express');
 const router  = express.Router();
-const app = express();
-const cookieSession = require('cookie-session');
 
 const { getUserByName } = require('../db/queries/helpers');
-
-// middleware
-app.use(express.urlencoded({ extended: true })); // convert the request body from a Buffer into string
-app.use(cookieSession({
-  name: 'whateverUserID',
-  keys: ["asdfasdf"],
-}));
 
 
 // browse user profile page
 router.get('/', (req, res) => {
-  res.render('users');
+  const userID = req.cookies.userID;
+  const name = req.cookies.username;
+  const templateVars = { userID: userID, username: name};
+  return res.render('users', templateVars);
 });
 
+// login
 router.post('/login', (req, res) => {
   const name = req.body.username;
   getUserByName(name)
     .then((user) => {
-      console.log(user);
-      console.log(req.session);
-      // req.session["user_id"] = user.id;
-
+      res.cookie('userID', user.id);
+      res.cookie('username', user.name);
       // res.json(user);
+      return res.redirect('/');
+    })
+    .catch((err) => {
+      console.log('error logging in');
+      console.error(err);
     });
+});
+
+router.post('/logout', (req, res) => {
+  res.clearCookie('userID');
+  res.clearCookie('username');
+  // res.send('done');
+  return res.redirect('/');
 });
 
 module.exports = router;

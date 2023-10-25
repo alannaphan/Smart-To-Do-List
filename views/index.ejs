@@ -41,6 +41,9 @@
   </header>
 
   <main>
+    <% if (!userID) { %>
+    <h2>Please login to enjoy your Smart TODOs</h2>
+    <% } else {%>
     <form class="new-item" action="/items" method="POST">
       <div class="user-input">
         <div class="user-input-right">
@@ -165,6 +168,7 @@
       </div>
     </section>
 
+    <%}%>
   </main>
 
 </body>
