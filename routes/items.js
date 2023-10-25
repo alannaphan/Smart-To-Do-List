@@ -2,7 +2,10 @@ const express = require('express');
 const router = express.Router();
 
 router.get('/', (req, res) => {
-  res.render('items');
+  const userID = req.cookies.userID;
+  const name = req.cookies.username;
+  const templateVars = { userID: userID, username: name };
+  return res.render('items', templateVars);
 });
 
 
