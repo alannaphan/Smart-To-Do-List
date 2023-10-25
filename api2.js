@@ -1,4 +1,5 @@
 const axios = require('axios');
+require('dotenv').config();
 
 // API key template
 const axiosTemplate = (url, params, host) => {
@@ -27,6 +28,7 @@ const food = (text) => {
   return axiosResponse
   .then((response) => {
     console.log('food length: ', response.results.length);
+
     if (response.results.length !== 0) {
       return 'food'
     }
@@ -66,7 +68,7 @@ const movie = (text) => {
   return axiosResponse
   .then((response) => {
     console.log('is movie: ', response.Response);
-    console.log(response);
+
     if (response.Response === 'True') {
       return 'movie';
     }
@@ -78,13 +80,13 @@ const movie = (text) => {
 
 
 const getCategorie = str => {
-  const f = food(str);
   const b = book(str);
   const m = movie(str);
+  const f = food(str);
 
   console.log(f,b,m);
 
-  return Promise.all([f,b,m]).then(responses => {
+  return Promise.all([b,m,f]).then(responses => {
     console.log(responses);
     if (responses[0]) {
       return 1;
@@ -103,7 +105,6 @@ const getCategorie = str => {
 const text = 'Django Unchained';
 // food(text);
 
-console.log("work");
 
 getCategorie(text).then(category_id => {
   console.log('the algo determined the category id is: ', category_id);
