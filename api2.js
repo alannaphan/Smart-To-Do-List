@@ -20,20 +20,18 @@ const axiosTemplate = (url, params, host) => {
 //--- retrieve food API
 const food = (text) => {
   const url = 'https://spoonacular-recipe-food-nutrition-v1.p.rapidapi.com/food/menuItems/suggest';
-  const params = { query: `${text}`, number: '10' };
+  const params = { query: text, number: '10' };
   const host = 'spoonacular-recipe-food-nutrition-v1.p.rapidapi.com';
   const axiosResponse = axiosTemplate(url, params, host);
 
-  axiosResponse
+  return axiosResponse
   .then((response) => {
     console.log('food length: ', response.results.length);
-
     if (response.results.length !== 0) {
-      return console.log('it do be a food');
+      return 'food'
     }
     else {
-      console.log('checking other catergories now!');
-      book(text);
+      return false;
     }
   })
 }
@@ -45,16 +43,15 @@ const book = (text) => {
   const host = 'book-finder1.p.rapidapi.com';
   const axiosResponse = axiosTemplate(url, params, host);
 
-  axiosResponse
+  return axiosResponse
   .then((response) => {
     console.log('book length: ', response.results.length);
 
     if (response.results.length !== 0) {
-      return console.log('it do be a book');
+      return 'book';
     }
     else {
-      console.log('checking other catergories now!');
-      movie(text);
+      return false;
     }
   })
 }
@@ -66,19 +63,52 @@ const movie = (text) => {
   const host = 'movie-database-alternative.p.rapidapi.com';
   const axiosResponse = axiosTemplate(url, params, host);
 
-  axiosResponse
+  return axiosResponse
   .then((response) => {
     console.log('is movie: ', response.Response);
-
-    if (response.Response) {
-      return console.log('it do be a movie');
+    console.log(response);
+    if (response.Response === 'True') {
+      return 'movie';
     }
     else {
-      console.log('checking other catergories now!');
-      product(text);
+      return false;
     }
   })
 }
 
+
+const getCategorie = str => {
+  const f = food(str);
+  const b = book(str);
+  const m = movie(str);
+
+  console.log(f,b,m);
+
+  return Promise.all([f,b,m]).then(responses => {
+    console.log(responses);
+    if (responses[0]) {
+      return 1;
+    } else if (responses[1]) {
+      return 2;
+    } else if (responses[2]) {
+      return 3;
+    } else {
+      console.log("all apis gave false, default to product");
+      return 4;
+    }
+  })
+
+}
+
 const text = 'Django Unchained';
-food(text);
+// food(text);
+
+console.log("work");
+
+getCategorie(text).then(category_id => {
+  console.log('the algo determined the category id is: ', category_id);
+  // pg.query(INSERT INTO table items VALUES ())
+});
+
+
+module.exports = getCategorie;
