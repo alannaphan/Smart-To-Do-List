@@ -2,12 +2,17 @@ const express = require('express');
 const router = express.Router();
 const getCategory = require('../api');
 const createItem = require('../db/queries/createItem')
+const userQueries = require('../db/queries/users');
+
 
 router.get('/', (req, res) => {
   const userID = req.cookies.userID;
-  const name = req.cookies.username;
-  const templateVars = { userID: userID, username: name };
-  return res.render('items', templateVars);
+
+  userQueries.getUsernameByID(userID)
+    .then(username => {
+      const templateVars = { userID, username };
+      return res.render('users', templateVars);
+    });
 });
 
 router.post('/', (req, res) => {

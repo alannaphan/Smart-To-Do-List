@@ -54,6 +54,12 @@ $(document).ready(function() {
   };
   loadTodos();
 
+  // $('.new-item').on('submit', function(event) {
+  //   event.preventDefault();
+
+  // });
+
+
 });
 
 
