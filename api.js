@@ -27,7 +27,6 @@ const food = (text) => {
 
   return axiosResponse
   .then((response) => {
-    console.log('food length: ', response.results.length);
 
     if (response.results.length !== 0) {
       return 'food'
@@ -47,7 +46,6 @@ const book = (text) => {
 
   return axiosResponse
   .then((response) => {
-    console.log('book length: ', response.results.length);
 
     if (response.results.length !== 0) {
       return 'book';
@@ -67,7 +65,6 @@ const movie = (text) => {
 
   return axiosResponse
   .then((response) => {
-    console.log('is movie: ', response.Response);
 
     if (response.Response === 'True') {
       return 'movie';
@@ -83,8 +80,6 @@ const getCategory = str => {
   const b = book(str);
   const m = movie(str);
   const f = food(str);
-
-  console.log(f,b,m);
 
   return Promise.all([b,m,f]).then(responses => {
     console.log(responses);
