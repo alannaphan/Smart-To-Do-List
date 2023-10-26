@@ -9,19 +9,25 @@ const express = require('express');
 const router  = express.Router();
 const db = require('../db/connection');
 
+// getAllToDosByUserID
 router.get('/', (req, res) => {
-  const query = `SELECT * FROM items`;
-  console.log(query);
-  db.query(query)
+  const userID = req.cookies.userID;
+
+  const query = `
+  SELECT *
+  FROM items
+  WHERE user_id = $1`;
+
+  db.query(query, [userID])
     .then(data => {
-      const widgets = data.rows;
-      res.json({ widgets });
+      res.json(data.rows);
     })
     .catch(err => {
       res
         .status(500)
         .json({ error: err.message });
     });
+
 });
 
 module.exports = router;

@@ -1,6 +1,9 @@
 // Client facing scripts here
 
 const createToDoElement = function(todoObj) {
+  const ddlStr = todoObj.deadline;
+  const ddl = ddlStr.slice(0,10);
+
   const layouot = `
     <article>
       <div class="check-item">
@@ -9,7 +12,7 @@ const createToDoElement = function(todoObj) {
       </div>
       <footer>
         <i class="fa-regular fa-clock" style="color: #a52a2a;"></i>
-        deadline: ${todoObj.deadline}
+        deadline: ${ddl}
       </footer>
       <div class="modify-buttons">
         <a href="/items">
@@ -43,13 +46,14 @@ const renderToDos = function(todoArr) {
 };
 
 $(document).ready(function() {
-  
-  const loadToDos = function() {
 
-  }
-}
+  const loadTodos = function() {
+    $.get('/api/items', function(todoArr) {
+      renderToDos(todoArr);
+    });
+  };
+  loadTodos();
 
-
-
+});
 
 
