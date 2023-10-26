@@ -24,10 +24,9 @@ const userQueries = require('../db/queries/users');
 
 router.get('/', (req, res) => {
   const userID = req.cookies.userID;
-  console.log(userID)
   userQueries.getUserByUserID(userID)
     .then(users => {
-      res.json({ users });
+      res.json(users);
     })
     .catch(err => {
       res

@@ -9,14 +9,28 @@ const express = require('express');
 const router  = express.Router();
 
 const { getUserByName } = require('../db/queries/helpers');
+const userQueries = require('../db/queries/users');
 
 
 // browse user profile page
 router.get('/', (req, res) => {
   const userID = req.cookies.userID;
-  const name = req.cookies.username;
-  const templateVars = { userID: userID, username: name};
-  return res.render('users', templateVars);
+
+  userQueries.getUsernameByID(userID)
+    .then(username => {
+      const templateVars = { userID, username};
+      return res.render('users', templateVars);
+    });
+});
+
+// update user profile page
+router.post('/', (req, res) => {
+  const userID = req.cookies.userID;
+  const newName = req.body['new-username'];
+
+  userQueries.updateUserByID(newName, userID)
+    .then(res.redirect('/users'));
+
 });
 
 // login
@@ -25,7 +39,7 @@ router.post('/login', (req, res) => {
   getUserByName(name)
     .then((user) => {
       res.cookie('userID', user.id);
-      res.cookie('username', user.name);
+      // res.cookie('username', user.name);
       // res.json(user);
       return res.redirect('/');
     })
@@ -38,9 +52,11 @@ router.post('/login', (req, res) => {
 // logout
 router.post('/logout', (req, res) => {
   res.clearCookie('userID');
-  res.clearCookie('username');
+  // res.clearCookie('username');
   // res.send('done');
   return res.redirect('/');
 });
+
+
 
 module.exports = router;
