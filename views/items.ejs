@@ -44,7 +44,7 @@
         <h1>List Name:</h1>
       </header>
 
-      <form action="/items" method="POST">
+      <form action="/items/<%=id %>" method="POST">
         <div id="user-inputs">
           <div class="left">
             <div>EDIT YOUR CURRENT ITEM:</div>
@@ -53,15 +53,15 @@
           </div>
 
           <div class="right">
-            <input type="text" placeholder="Edit here!" />
-            <input type="date" />
+            <input type="text" name="updated-item" placeholder="Edit here!" />
+            <input type="date" name="updated-date"/>
             <select name="list-category" id="list-category">
               <option value="default" selected>Your new list wil be:</option>
-              <option value="watch">👀 to watch</option>
-              <option value="eat">😋 to eat</option>
-              <option value="read">📖 to read</option>
-              <option value="buy">🛍 to buy</option>
-              <option value="other">❓ Other</option>
+              <option value="2">👀 to watch</option>
+              <option value="3">😋 to eat</option>
+              <option value="1">📖 to read</option>
+              <option value="4">🛍 to buy</option>
+              <option value="5">❓ Other</option>
             </select>
           </div>
         </div>

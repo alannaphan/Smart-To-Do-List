@@ -5,7 +5,7 @@ const createToDoElement = function(todoObj) {
   const ddl = ddlStr.slice(0,10);
 
   const layout = `
-    <article id="${todoObj.id}">
+    <article>
       <div class="check-item">
         <input type="checkbox" name="checkbox" id="checkbox">
         <p>${todoObj.name}</p>
@@ -16,7 +16,9 @@ const createToDoElement = function(todoObj) {
       </footer>
       <div class="modify-buttons">
         <a href="/items">
-          <button class="button-4" role="button">edit</button>
+        <form method="GET" action="/items/${todoObj.id}">
+        <button class="button-4" role="button">edit</button>
+      </form>
         </a>
         <form method="POST" action="/items/delete">
           <input type="hidden" name="todoId" value="${todoObj.id}">

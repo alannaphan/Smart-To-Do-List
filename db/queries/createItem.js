@@ -8,7 +8,8 @@ const getItemsByUser = (user_id) => {
 }
 
 const createItem = (userID, categoryID, name, deadline) => {
-  return db.query(`INSERT INTO items (user_id, category_id, name, deadline) VALUES ($1, $2, $3, $4);`, [userID, categoryID, name, deadline])
+  return db.query(`INSERT INTO items (user_id, category_id, name, deadline)
+  VALUES ($1, $2, $3, $4);`, [userID, categoryID, name, deadline])
 };
 
 module.exports = createItem;
