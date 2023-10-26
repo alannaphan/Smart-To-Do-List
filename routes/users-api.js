@@ -8,6 +8,7 @@
 const express = require('express');
 const router  = express.Router();
 const userQueries = require('../db/queries/users');
+const db = require('../db/connection');
 
 // router.get('/', (req, res) => {
 //   userQueries.getUsers()
@@ -22,18 +23,38 @@ const userQueries = require('../db/queries/users');
 // });
 
 
+// router.get('/', (req, res) => {
+//   const userID = req.cookies.userID;
+//   console.log(userID)
+//   userQueries.getUserByUserID(userID)
+//     .then(users => {
+//       res.json({ users });
+//     })
+//     .catch(err => {
+//       res
+//         .status(500)
+//         .json({ error: err.message });
+//     });
+// });
+
 router.get('/', (req, res) => {
   const userID = req.cookies.userID;
-  console.log(userID)
-  userQueries.getUserByUserID(userID)
-    .then(users => {
-      res.json({ users });
+
+  const query = `
+  SELECT *
+  FROM items
+  WHERE user_id = $1`;
+
+  db.query(query, [userID])
+    .then(data => {
+      res.json(data.rows);
     })
     .catch(err => {
       res
         .status(500)
         .json({ error: err.message });
     });
+
 });
 
 module.exports = router;
