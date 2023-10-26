@@ -21,8 +21,11 @@ const userQueries = require('../db/queries/users');
 //     });
 // });
 
+
 router.get('/', (req, res) => {
-  userQueries.getUserByUserID()
+  const userID = req.cookies.userID;
+  console.log(userID)
+  userQueries.getUserByUserID(userID)
     .then(users => {
       res.json({ users });
     })
