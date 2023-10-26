@@ -7,7 +7,7 @@ const userQueries = require('../db/queries/users');
 router.get('/', (req, res) => {
   const userID = req.cookies.userID;
   if (!userID) {
-    const templateVars = {userID, username: 'Username'};
+    const templateVars = {userID};
     return res.render('index', templateVars);
   }
 
