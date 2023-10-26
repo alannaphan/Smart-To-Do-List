@@ -1,5 +1,7 @@
 const express = require('express');
 const router = express.Router();
+const getCategory = require('../api');
+const createItem = require('../db/queries/createItem')
 
 router.get('/', (req, res) => {
   const userID = req.cookies.userID;
