@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 
   userQueries.getUsernameByID(userID)
     .then(username => {
-      const templateVars = { userID, username};
+      const templateVars = {userID, username};
       return res.render('users', templateVars);
     });
 });
