@@ -3,20 +3,15 @@ const db = require('../connection');
 const getItemsByUser = (user_id) => {
   return db.query(`SELECT * FROM items WHERE user_id = $1`, [user_id])
   .then((res) => {
-    // console.log(res);
     console.log(res.rows);
-    // console.log(res.rows[0]);
   })
 }
 
-const createItem = (user_id, category_id, name, deadline) => {
-  return db.query(`INSERT INTO items (user_id, category_id, name, deadline) VALUES ($1, $2, $3, $4);`, [user_id, category_id, name, deadline])
+const createItem = (userID, categoryID, name, deadline) => {
+  return db.query(`INSERT INTO items (user_id, category_id, name, deadline) VALUES ($1, $2, $3, $4);`, [userID, categoryID, name, deadline])
     .then((res) => {
-      // console.log(res);
-      getItemsByUser(user_id)
-    });
+        getItemsByUser(userID)
+      });
 };
 
-module.exports = { getItemsByUser, createItem };
-
-createItem(1, 3, 'avocado eggie toast', 2023-10-25);
+module.exports = createItem;
