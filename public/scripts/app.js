@@ -43,13 +43,14 @@ const renderToDos = function(todoArr) {
 };
 
 $(document).ready(function() {
-  
-  const loadToDos = function() {
 
-  }
-}
+  const loadTodos = function() {
+    $.get('/api/items', function(todoArr) {
+      renderToDos(todoArr);
+    });
+  };
+  loadTodos();
 
-
-
+});
 
 

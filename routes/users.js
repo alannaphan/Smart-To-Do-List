@@ -35,6 +35,7 @@ router.post('/login', (req, res) => {
     });
 });
 
+// logout
 router.post('/logout', (req, res) => {
   res.clearCookie('userID');
   res.clearCookie('username');
