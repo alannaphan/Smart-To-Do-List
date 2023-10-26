@@ -11,13 +11,18 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  // const userID = req.cookies.userID
-  console.log(req.body)
-  // const categoryID = getCategory(req.body);
-  // const name = req.body;
-  // const deadline = '2023-10-30';
+  const userID = req.cookies.userID
+  console.log(req.body.item, req.body.date)
+  const name = req.body.item;
+  const deadline = req.body.date;
 
-  // createItem(userID, categoryID, name, deadline);
+  getCategory(name).then(categoryID => {
+    console.log('the algo determined the category id is: ', categoryID);
+
+    console.log(categoryID, name)
+    createItem(userID, categoryID, name, deadline);
+  });
+
 
   return res.redirect('/');
 })
