@@ -7,4 +7,14 @@ const getUserByName = (name) => {
     });
 };
 
-module.exports = { getUserByName };
+const getAllToDosByUserID = function(userID) {
+  return db.query(`
+    SELECT * FROM items
+    WHERE user_id = $1
+    `, [userID])
+    .then((res) => {
+      return res.rows;
+    });
+};
+
+module.exports = { getUserByName, getAllToDosByUserID };

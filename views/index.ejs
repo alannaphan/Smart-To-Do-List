@@ -53,8 +53,8 @@
         </div>
 
         <div class="user-input-left">
-          <input type="text" placeholder="Add a task!" />
-          <input type="date" />
+          <input type="text" name="item" placeholder="Add a task!" />
+          <input type="date" name="date"/>
           <!-- <select name="list-category" id="list-category">
             <option value="default" selected>Your recommended list wil be:</option>
             <option value="watch">👀 to watch</option>
@@ -75,31 +75,34 @@
           <header>
             <h3>👀 to watch:</h3>
           </header>
-          <article>
-            <div class="check-item">
-              <input type="checkbox" name="checkbox" id="checkbox">
-              <p>Watch FA ep9!</p>
-            </div>
-            <footer>
-              <i class="fa-regular fa-clock" style="color: #a52a2a;"></i>
-              deadline: new Wed
-            </footer>
+          <section id="watch">
+            <article>
+              <div class="check-item">
+                <input type="checkbox" name="checkbox" id="checkbox">
+                <p>Watch FA ep9!</p>
+              </div>
+              <footer>
+                <i class="fa-regular fa-clock" style="color: #a52a2a;"></i>
+                deadline: new Wed
+              </footer>
 
-            <div class="modify-buttons">
-              <a href="/items">
-                <button class="button-4" role="button">edit</button>
-              </a>
-              <form method="POST" action="/items/delete">
-                <button class="button-4" role="button">delete</button>
-              </form>
-            </div>
-          </article>
+              <div class="modify-buttons">
+                <a href="/items">
+                  <button class="button-4" role="button">edit</button>
+                </a>
+                <form method="POST" action="/items/delete">
+                  <button class="button-4" role="button">delete</button>
+                </form>
+              </div>
+            </article>
+          </section>
         </div>
 
         <div class="per-list">
           <header>
             <h3>😋 to eat:</h3>
           </header>
+          <section id="eat"> </section>
           <article>
             <div class="check-item">
               <input type="checkbox" name="checkbox" id="checkbox">
@@ -119,6 +122,7 @@
           <header>
             <h3>📖 to read:</h3>
           </header>
+          <section id="read"> </section>
           <article>
             <div class="check-item">
               <input type="checkbox" name="checkbox" id="checkbox">
@@ -135,6 +139,7 @@
           <header>
             <h3>🛍 to buy:</h3>
           </header>
+          <section id="buy"></section>
           <article>
             <div class="check-item">
               <input type="checkbox" name="checkbox" id="checkbox">
@@ -154,6 +159,7 @@
           <header>
             <h3>❓ Other:</h3>
           </header>
+          <section id="other"> </section>
           <article>
             <div class="check-item">
               <input type="checkbox" name="checkbox" id="checkbox">

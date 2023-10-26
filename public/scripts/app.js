@@ -1,5 +1,53 @@
 // Client facing scripts here
 
+const createToDoElement = function(todoObj) {
+  const layouot = `
+    <article>
+      <div class="check-item">
+        <input type="checkbox" name="checkbox" id="checkbox">
+        <p>${todoObj.name}</p>
+      </div>
+      <footer>
+        <i class="fa-regular fa-clock" style="color: #a52a2a;"></i>
+        deadline: ${todoObj.deadline}
+      </footer>
+      <div class="modify-buttons">
+        <a href="/items">
+          <button class="button-4" role="button">edit</button>
+        </a>
+        <form method="POST" action="/items/delete">
+          <button class="button-4" role="button">delete</button>
+        </form>
+      </div>
+    </article>
+  `;
+  return layouot;
+};
+
+const renderToDos = function(todoArr) {
+  for (const todoObj of todoArr) {
+    const $todo = createToDoElement(todoObj);
+
+    if (todoObj['category_id'] === 1) {
+      $('#read').prepend($todo);
+    } else if (todoObj['category_id'] === 2) {
+      $('#watch').prepend($todo);
+    } else if (todoObj['category_id'] === 3) {
+      $('#eat').prepend($todo);
+    } else if (todoObj['category_id'] === 4) {
+      $('#buy').prepend($todo);
+    } else if (todoObj['category_id'] === 5) {
+      $('#other').prepend($todo);
+    }
+  }
+};
+
+$(document).ready(function() {
+  
+  const loadToDos = function() {
+
+  }
+}
 
 
 
