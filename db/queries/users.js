@@ -33,6 +33,7 @@ const getUsernameByID = (id) => {
     WHERE id = $1
   `, [id])
     .then(data => {
+      // return data.rows[0]
       return data.rows[0]['name'];
     });
 };
