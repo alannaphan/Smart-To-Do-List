@@ -4,8 +4,8 @@ const createToDoElement = function(todoObj) {
   const ddlStr = todoObj.deadline;
   const ddl = ddlStr.slice(0,10);
 
-  const layouot = `
-    <article>
+  const layout = `
+    <article id="${todoObj.id}">
       <div class="check-item">
         <input type="checkbox" name="checkbox" id="checkbox">
         <p>${todoObj.name}</p>
@@ -19,12 +19,14 @@ const createToDoElement = function(todoObj) {
           <button class="button-4" role="button">edit</button>
         </a>
         <form method="POST" action="/items/delete">
+          <input type="hidden" name="todoId" value="${todoObj.id}">
           <button class="button-4" role="button">delete</button>
         </form>
       </div>
     </article>
   `;
-  return layouot;
+
+  return layout;
 };
 
 const renderToDos = function(todoArr) {
@@ -61,5 +63,3 @@ $(document).ready(function() {
 
 
 });
-
-
