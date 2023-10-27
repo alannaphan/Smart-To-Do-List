@@ -7,8 +7,6 @@
 
 const express = require('express');
 const router  = express.Router();
-
-const { getUserByName } = require('../db/queries/helpers');
 const userQueries = require('../db/queries/users');
 
 
@@ -36,15 +34,14 @@ router.post('/', (req, res) => {
 // login
 router.post('/login', (req, res) => {
   const name = req.body.username;
-  getUserByName(name)
+  userQueries
+    .getUserByName(name)
     .then((user) => {
-      res.cookie('userID', user.id);
-      // res.cookie('username', user.name);
-      // res.json(user);
-      return res.redirect('/');
+      res.cookie("userID", user.id);
+      return res.redirect("/");
     })
     .catch((err) => {
-      console.log('error logging in');
+      console.log("error logging in");
       console.error(err);
     });
 });
@@ -52,11 +49,7 @@ router.post('/login', (req, res) => {
 // logout
 router.post('/logout', (req, res) => {
   res.clearCookie('userID');
-  // res.clearCookie('username');
-  // res.send('done');
   return res.redirect('/');
 });
-
-
 
 module.exports = router;

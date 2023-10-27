@@ -1,14 +1,11 @@
 const db = require('../connection');
 
-const getUsers = () => {
-  return db.query('SELECT * FROM users;')
-    .then(data => {
-      return data.rows;
-    });
-};
-
 const getUserByUserID = (id) => {
-  return db.query('SELECT * FROM users WHERE id = $1', [id])
+  return db.query(`
+    SELECT *
+    FROM users
+    WHERE id = $1
+    `, [id])
     .then(data => {
       return data.rows;
     });
@@ -33,9 +30,24 @@ const getUsernameByID = (id) => {
     WHERE id = $1
   `, [id])
     .then(data => {
-      // return data.rows[0]
       return data.rows[0]['name'];
     });
 };
 
-module.exports = { getUsers, getUserByUserID, updateUserByID, getUsernameByID };
+const getUserByName = (name) => {
+  return db.query(`
+    SELECT *
+    FROM users
+    WHERE name = $1
+    `, [name])
+      .then((res) => {
+        return res.rows[0];
+    });
+};
+
+module.exports = {
+  getUserByUserID,
+  updateUserByID,
+  getUsernameByID,
+  getUserByName,
+};
