@@ -40,8 +40,8 @@ const getUserByName = (name) => {
     FROM users
     WHERE name = $1
     `, [name])
-      .then((res) => {
-        return res.rows[0];
+    .then((res) => {
+      return res.rows[0];
     });
 };
 

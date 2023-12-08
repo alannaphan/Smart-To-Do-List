@@ -17,8 +17,8 @@ const createToDoElement = function(todoObj) {
       <div class="modify-buttons">
         <a href="/items">
         <form method="GET" action="/items/${todoObj.id}">
-        <button class="button-4" role="button">edit</button>
-      </form>
+          <button class="button-4" role="button">edit</button>
+        </form>
         </a>
         <form method="POST" action="/items/delete">
           <input type="hidden" name="todoId" value="${todoObj.id}">
