@@ -15,8 +15,17 @@ The Smart To-Do List web app is a project designed to provide users with a seaml
 
 ## Screenshots
 - Login Page
+  <p align="center">
+    <img src="https://github.com/yummyflan/Smart-To-Do-List/blob/update/readme/doc/02login.png?raw=true" alt="Login page" width="500">
+  </p>
 - Task Management Dashboard
+  <p align="center">
+    <img src="https://github.com/yummyflan/Smart-To-Do-List/blob/update/readme/doc/00homepage.png?raw=true" alt="Homepage" width="500">
+  </p>
 - Editing a Task
+  <p align="center">
+    <img src="https://github.com/yummyflan/Smart-To-Do-List/blob/update/readme/doc/01edit.png?raw=true" alt="Editing Task" width="500">
+  </p>
 
 ## Dependencies
   - Node 10.x or above
