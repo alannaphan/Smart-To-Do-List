@@ -1,16 +1,36 @@
-LHL Node Skeleton
+Smart To-Do List
 =========
+## Overview
+The Smart To-Do List web app is a project designed to provide users with a seamless experience in organizing their tasks. It utilizes various APIs to intelligently categorize user input into specific task categories, making task management more efficient. Users can create, edit, and delete tasks to tailor their to-do list according to their needs.
 
-## Project Setup
+## Features
+* Automatic categorization of user input into predefined categories:
+  - To Eat
+  - To Read
+  - To Watch
+  - To Buy
+  - Other (if the input does not fit any of the above categories)
+* Easy and intuitive user interface for task management.
+* Ability for users to edit and delete tasks they have created.
 
-The following steps are only for _one_ of the group members to perform.
+## Screenshots
+- Login Page
+- Task Management Dashboard
+- Editing a Task
 
-1. Create your own copy of this repo using the `Use This Template` button, ideally using the name of your project. The repo should be marked Public
-2. Verify that the skeleton code now shows up in your repo on GitHub, you should be automatically redirected
-3. Clone your copy of the repo to your dev machine
-4. Add your team members as collaborators to the project so that they can push to this repo
-5. Let your team members know the repo URL so that they use the same repo (they should _not_ create a copy/fork of this repo since that will add additional workflow complexity to the project)
-
+## Dependencies
+  - Node 10.x or above
+  - NPM 5.x or above
+  - PG 6.x
+  - axios: ^1.5.1
+  - chalk: ^2.4.2
+  - cookie-parser: ^1.4.6
+  - dotenv: ^2.0.0
+  - ejs: ^2.6.2
+  - express: ^4.17.1
+  - morgan: ^1.9.1
+  - pg: ^8.5.0
+  - sass: ^1.35.1
 
 ## Getting Started
 
@@ -37,8 +57,3 @@ The following steps are only for _one_ of the group members to perform.
   - It runs through each of the files, in order, and executes them against the database. 
   - Note: you will lose all newly created (test) data each time this is run, since the schema files will tend to `DROP` the tables and recreate them.
 
-## Dependencies
-
-- Node 10.x or above
-- NPM 5.x or above
-- PG 6.x

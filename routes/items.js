@@ -28,6 +28,7 @@ router.post("/delete/", (req, res) => {
 });
 
 // GET request to edit item page
+// 这里的id来自于前一步edit button时（app.js），使用todoObj中的id，作为了form的get url
 router.get("/:id", (req, res) => {
   const userID = req.cookies.userID;
 
